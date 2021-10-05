@@ -1,0 +1,60 @@
+        .HOVER {
+            --width: 100%;
+            --time: 0.7s;
+            position: relative;
+            display: inline-block;
+            height: 1em;
+			width: 6em;
+			top: 15px;
+			left: 35px;
+            padding: 1.2em;
+            border-radius: 8px;
+            color: white;
+            background: #4a4de0; /*Blue*/
+            overflow: hidden;
+        }
+
+        .HOVER text {
+            position: relative;
+            z-index: 5;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color var(--time);
+        }
+
+        .HOVER span {
+            position: absolute;
+            display: block;
+            content: '';
+            z-index: 0;
+            width: 0;
+            height: 0;
+            border-radius: 100%;
+            background: #fff;
+            transform: translate(-50%, -50%);
+            transition: width var(--time), padding-top var(--time);
+        }
+
+        .HOVER:hover span {
+            width: calc(var(--width) * 2.25);
+            padding-top: calc(var(--width) * 2.25);
+        }
+
+        .HOVER.FLASH:hover text {
+            color: #fff;
+        }
+
+        .HOVER.FLASH span {
+            background: #f87099;	/*Pink*/
+        }
+
+        .animated {
+            --angle: 5deg;
+            animation: shake .3s;
+        }
+
+        @keyframes shake {
+            25%{transform: rotate(calc(var(--angle) * -1));}
+            50%{transform: rotate(var(--angle));}
+            100%{transform: rotate(0deg);}
+        }
